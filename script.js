@@ -1,173 +1,100 @@
-// 1)Reverse String.
+// // Array.prptotype.push()
 
-var input = "Hello, World!";
+// console.log(count);
 
+// Array.prototype.unshift()
 
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
+// const animals = ['pigs', 'goats', 'sheeps'];
+// const count = animals.unshift ('checken');   
+// console.log(count);
+// console.log(animals);
 
-function reverseAfterDelay() {
-  setTimeout(function() {
-    var reversed = reverseString(input);
-    console.log(reversed);
-  }, 2000); 
-}
+// const myNumber = [1,2,3,5];
+// myNumber.unshift(4,6);
+// console.log(myNumber);
 
-reverseAfterDelay();
+// Array.prototype.pop()
 
+// const plants = ['kale','tomato', 'potato'];
+// console.log(plants);
+// console.log(plants.pop());
+// console.log(plants);
 
-// 2)Random Number Generator with Delay and Progress Indication:
+// Array.prototype.shift()
 
-var delayInSeconds = 3;
+// const plants = ['kale','tomato', 'potato'];
+// console.log(plants);
+// console.log(plants.shift());
+// console.log(plants);
 
-function generateRandomNumber() {
-  return Math.floor(Math.random() * 100); // Change the range as needed
-}
+// # challange time 
 
-function displayCountdown(secondsRemaining) {
-  console.log(`Generating random number in ${secondsRemaining} seconds...`);
-}
+//  const months = ['jan' , 'march' , 'april' , 'july'];
+//  const addEnd = months.push("Dec");
+//  console.log(addEnd);
+//  console.log(months);
 
-function startCountdownAndGenerateNumber() {
-  var secondsRemaining = delayInSeconds;
+// const months = ['jan' , 'march' , 'april' , 'july'];
+// const updateMonth = month.splice (1,1,"March");
+// console.log(months);
 
-  var countdownInterval = setInterval(function () {
-    displayCountdown(secondsRemaining);
-    secondsRemaining--;
+// const month = ['jan' , 'March' , 'april' , 'july'];
+// const indexOfMonth= month.indexOf('March');
+// if (indexOfMonth!= -1) {
+// const updateMonth= month.splice(indexOfMonth,1,'march');
+// console.log(month);
 
-    if (secondsRemaining < 0) {
-      clearInterval(countdownInterval);
-      var randomNumber = generateRandomNumber();
-      console.log(`Random number generated: ${randomNumber}`);
-    }
-  }, 1000); // Update countdown every 1 second
-}
-
-
-startCountdownAndGenerateNumber();
-
-
-
-// 3) Build a feature for Store's Inventory.
-
-const usdToInrExchangeRate = 80;
-
-const itemsInUSD = {
-  item1: 20,
-  item2: 35,
-  item3: 10,
-};
-
-function convertToINR(priceInUSD) {
-  return priceInUSD * usdToInrExchangeRate;
-}
-
-const itemsInINR = Object.keys(itemsInUSD).reduce((acc, item) => {
-  acc[item] = convertToINR(itemsInUSD[item]);
-  return acc;
-}, {});
-console.log(itemsInINR);
-
-
-// 4)Filtering and Capitalizing: Books Published After 2010 with Author Names.
-
-const books = [
-  {
-    title: "Book 1",
-    author: "author 1",
-    year: 2008
-  },
-  {
-    title: "Book 2",
-    author: "author 2",
-    year: 2015
-  },
-  {
-    title: "Book 3",
-    author: "author 3",
-    year: 2005
-  },
-  {
-    title: "Book 4",
-    author: "author 4",
-    year: 2012
-  }
-];
-
-
-function filterAndCapitalize(books) {
-  return books
-    .filter(book => book.year >= 2010)
-    .map(book => {
-      book.author = book.author.toUpperCase();
-      return book;
-    });
-}
-
-const filteredBooks = filterAndCapitalize(books);
-
-
-console.log(filteredBooks);
-
-
-// 5)URL validation.
-
-const urlPattern = /^(https?:\/\/)[\w\d.-]+\.[A-Za-z]+$/;
-
-
-function isURLValid(input) {
-  return urlPattern.test(input);
-}
-
-
-const testUrls = [
-  "http://example.com",
-  "https://www.example.com",
-  "https://example123-abc.xyz",
-  "ftp://invalid.com", // Invalid URL
-  "http://invalid"     // Invalid URL
-];
-
-
-testUrls.forEach(url => {
-  if (isURLValid(url)) {
-    console.log(`${url} is a valid URL.`);
-  } else {
-    console.log(`${url} is not a valid URL.`);
-  }
-});
+// }else{
+//     console.log('No Such Data Found');
+// }
 
 
 
+// const month = ['jan' , 'March' , 'april' ,'june' , 'july'];
+// const indexOfMonth= month.indexOf('april'/ 'june');
+// if (indexOfMonth!= -1) {
+// const updateMonth= month.splice(indexOfMonth);         problem
+// console.log(month);
+
+// }else{
+//     console.log('No Such Data Found');
+// }
+
+// // Array.prototype.map()
+// const arr1 =[1,4,9,16,25];
+// let newArr = arr1.map((curElm,index, arr) => {
+//     return curElm > 9;})
+//     console.log(arr1);
+//     console.log(newArr);
 
 
-// 6LinkedIn Profile URL Validator.
-
-const linkedinUrlPattern ="https:www.linkedin.com/[a-zA-Z0-9_-]{5,30}[a-zA-Z0-9]$";
-
-
-function isLinkedInURLValid(url) {
-  return linkedinUrlPattern.test(url);
-}
+//     const arr1 =[1,4,9,16,25];
+// let newArr = arr1.map((curElem,index, arr) => {
+//     return `indexno= ${index} and the value is ${curElem} belong to ${arr} ` })
+//         console.log(newArr);
 
 
-const testLinkedInURLs = [
-  "https://www.linkedin.com/in/johndoe123",
-  "https://www.linkedin.com/in/jane_smith",
-  "https://www.linkedin.com/in/user-name-1234",
-  "https://www.linkedin.com/in/a",
-  "https://www.linkedin.com/profile/invalid", // Invalid URL
-  "https://www.linkedin.com/in/username123/"  // Invalid URL
-];
+// challange time
 
+// let arr = [25,36,49,64,81];
+// let arrSqr = arr.map((curElem) => {
+//     return Math.sqrt(curElem);
+// })
+// console.log(arrSqr);
 
-testLinkedInURLs.forEach(url => {
-  if (isLinkedInURLValid(url)) {
-    console.log(`${url} is a valid LinkedIn profile URL.`);
-  } else {
-    console.log(`${url} is not a valid LinkedIn profile URL.`);
-  }
-});
+// let arr = [2,3,4,6,8];
+// let arr2 = arr.map((curElm) => {
+//     return curElm*2;
+//  }).filter((curElm) => {   
+//     return curElm > 10;
+// })
+// console.log(arr2);
+
+      //   or
+
+    //   let arr = [2,3,4,6,8];
+    //   let arr2 = arr.map ((curElm) => curElm*2).filter((curElm) => curElm>10);
+    //   console.log(arr2)
+
 
 
